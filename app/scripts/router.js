@@ -6,8 +6,6 @@ var MainStoreContainer = require('./components/shop.jsx').MainStoreContainer;
 
 var CartContainer = require('./components/cart.jsx').CartContainer;
 
-
-
 var StoreAppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',

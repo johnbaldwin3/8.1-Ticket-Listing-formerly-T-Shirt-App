@@ -5,6 +5,23 @@ var ReactDOM = require('react-dom');
 class CartContainer extends React.Component {
 
 render() {
+    var orderItems = JSON.parse(localStorage.getItem('tickets'));
+    console.log(orderItems, 'oI');
+
+    var orderedTickets = orderItems.map((ticketOrder)=> {
+      console.log(ticketOrder, 'ticketORder');
+      return (
+        <tr key={ticketOrder.cid}>
+          <td>{ticketOrder.bandName}</td>
+          <td>{ticketOrder.venue}</td>
+          <td><s>$ {(ticketOrder.price).toFixed(2)}</s></td>
+          <td>$ {(ticketOrder.price - (ticketOrder.deal * ticketOrder.price)).toFixed(2)}</td>
+          <td>{ticketOrder.qty}</td>
+          <td>expiration time here</td>
+          <td><button>remove ticket button</button> </td>
+        </tr>
+      )
+    });
   return (
   <div className="wrapper">
       <nav className="navbar navbar-default">
@@ -40,21 +57,15 @@ render() {
           <tr>
             <th>Concert:</th>
             <th>Venue:</th>
-            <th>Price:</th>
+            <th>Original Price:</th>
+            <th>Deal Price:</th>
             <th>Quantity:</th>
             <th>This Deal Expires in:</th>
             <th>Remove Tickets</th>
           </tr>
         </thead>
         <tbody className="checkout-body">
-          <tr>
-          <td>a band name here</td>
-          <td>a venue here</td>
-          <td>a price list here</td>
-          <td># of tickets here</td>
-          <td>expiration time here</td>
-          <td><button>remove ticket button</button> </td>
-          </tr>
+          {orderedTickets}
         </tbody>
       </table>
     </div>

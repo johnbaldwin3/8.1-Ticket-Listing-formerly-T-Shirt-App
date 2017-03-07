@@ -2,12 +2,13 @@ var Backbone = require('backbone');
 Backbone.LocalStorage = require("backbone.localstorage");
 
 var TicketOrderItem = Backbone.Model.extend({
+  
   defaults: {
     bandName: '',
     venue: '',
     price: '',
     deal: '',
-    qty: ''
+    qty: 0,
   }
 });
 
@@ -27,8 +28,6 @@ var Order = Backbone.Model.extend({
 });
 var OrderCollection = Backbone.Collection.extend({
   model: TicketOrderItem,
-
-
 
 });
 

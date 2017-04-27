@@ -48,7 +48,7 @@ class MainStoreContainer extends React.Component {
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                   <li className="active" ><a href="#">Concert Tickets  <span className="sr-only">(current)</span></a></li>
-                  <li><a href="#cart"> Your Cart</a></li>
+                  <li><a href="#cart"> Your Cart <span className="badge">4</span> </a></li>
                 </ul>
               </div>
           </div>
@@ -71,7 +71,6 @@ class MainStoreContainer extends React.Component {
 }
 
 class BandListItem extends React.Component {
-
   constructor(props) {
     super(props);
     var ticketOrderItem = new TicketOrderItem();
